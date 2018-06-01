@@ -2,7 +2,7 @@ const rollup = require('rollup').rollup;
 const resolve = require('rollup-plugin-node-resolve');
 
 const gulp = require('gulp');
-const packages = require('/www/package.json');
+const packages = require('./www/package.json');
 const $ = require('gulp-load-plugins')({
   config: packages
 });
@@ -50,7 +50,7 @@ gulp.task('sass', function () {
 // Script Task
 gulp.task('script', function () {
   return rollup({
-    entry: pathSrc + script,
+    input: pathSrc + script,
     context: 'window',
     treeshake: false,
     plugins: [
@@ -62,8 +62,9 @@ gulp.task('script', function () {
     ],
   }).then(function (bundle) {
     return bundle.write({
-      dest: pathDest + libName + '.js',
-      format: 'es',
+      file: pathDest + libName + '.js',
+      format: 'umd',
+      name: 'tns'
       // moduleName: 'tns',
     });
   });

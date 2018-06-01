@@ -1,0 +1,12 @@
+{
+    "dependencies": {
+        "gulp-sourcemaps": "*",
+        "gulp-sass": "*",
+        "gulp-change": "*",
+        "gulp-rename": "*",
+        "gulp-uglify": "*",
+        "gulp-plumber": "*",
+        "gulp-nunjucks": "*",
+        "gulp-htmltidy": "*"
+    }
+}
